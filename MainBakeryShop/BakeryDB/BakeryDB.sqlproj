@@ -55,5 +55,6 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
   </ItemGroup>
 </Project>
