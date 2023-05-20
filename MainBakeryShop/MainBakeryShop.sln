@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BakeryDB", "BakeryDB\BakeryDB.sqlproj", "{FFAC5677-80AB-410F-B7E2-D747A315DE64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakeryApi", "BakeryApi\BakeryApi.csproj", "{8F5096F1-4E64-4C85-9F07-9B576B6E1C21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakeryApi", "BakeryApi\BakeryApi.csproj", "{8F5096F1-4E64-4C85-9F07-9B576B6E1C21}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "bakery-app", "bakery-app\", "{9295318E-ED13-454C-873B-86CEC8349565}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_54797"
 		Debug.AspNetCompiler.PhysicalPath = "bakery-app\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54797\"
