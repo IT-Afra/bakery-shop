@@ -7,6 +7,20 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="City" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="84d39bb5-88ef-4b14-9e72-9a10091c94cf" ChangeDateTime="05/20/2023 14:49:22">
+    <Property Name="ElementName" Value="[dbo].[shpCheckout].[tra]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[shpCheckout]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Transaction" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bd1831d1-6b10-42c2-a004-989b04a3b7fd" ChangeDateTime="05/20/2023 14:49:36">
+    <Property Name="ElementName" Value="[dbo].[shpCheckout].[Transaction]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[shpCheckout]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TransactionId" />
+  </Operation>
   <Operation Name="Rename Refactor" Key="ad52f7f2-55ea-4091-a3da-531a6673b449" ChangeDateTime="05/20/2023 14:48:14">
     <Property Name="ElementName" Value="[dbo].[InfBakeryBrdCategory].[CategoryId]" />
     <Property Name="ElementType" Value="SqlSimpleColumn" />
