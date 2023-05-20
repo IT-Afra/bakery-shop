@@ -64,5 +64,7 @@
     <Build Include="dbo\Tables\gtSignUpRole.sql" />
     <Build Include="dbo\Tables\shpPreparing.sql" />
     <Build Include="dbo\Tables\Bread.sql" />
+    <Build Include="dbo\Tables\InfBakeryBrdCategory.sql" />
+    <Build Include="dbo\Tables\BrdCategory.sql" />
   </ItemGroup>
 </Project>

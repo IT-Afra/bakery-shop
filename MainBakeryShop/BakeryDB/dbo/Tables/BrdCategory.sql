@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[BrdCategory]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(50) NOT NULL, 
+    [Thumbnaile] NVARCHAR(50) NOT NULL, 
+    [BkCTId] BIGINT NOT NULL
+)
