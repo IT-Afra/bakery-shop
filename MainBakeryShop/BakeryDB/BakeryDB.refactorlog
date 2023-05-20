@@ -28,6 +28,12 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="CategoryID" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="d20f6ec8-cb10-4015-bd92-f206daa80506" ChangeDateTime="05/20/2023 15:01:08">
+    <Property Name="ElementName" Value="[dbo].[InfBakery].[ProfileLogPic]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InfBakery]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProfileLogoPic" />
   <Operation Name="Rename Refactor" Key="52b823d3-f292-49b1-b1fd-1778f972a570" ChangeDateTime="05/20/2023 14:53:53">
     <Property Name="ElementName" Value="[dbo].[gtContactUs].[Descrip]" />
     <Property Name="ElementType" Value="SqlSimpleColumn" />
