@@ -61,5 +61,6 @@
     <Build Include="dbo\Tables\usrCostumer.sql" />
     <RefactorLog Include="BakeryDB.refactorlog" />
     <Build Include="dbo\Tables\gtFAQ.sql" />
+    <Build Include="dbo\Tables\gtSignUpRole.sql" />
   </ItemGroup>
 </Project>
