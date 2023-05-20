@@ -58,6 +58,8 @@
     <Folder Include="dbo\Tables" />
   </ItemGroup>
   <ItemGroup>
+    <Build Include="dbo\Tables\usrCostumer.sql" />
+    <RefactorLog Include="BakeryDB.refactorlog" />
     <Build Include="dbo\Tables\gtFAQ.sql" />
   </ItemGroup>
 </Project>
