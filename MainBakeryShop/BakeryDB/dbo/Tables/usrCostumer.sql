@@ -9,5 +9,5 @@
     [Phone] NVARCHAR(50) NOT NULL, 
     [UserName] NVARCHAR(50) NOT NULL, 
     [Password] NVARCHAR(50) NOT NULL, 
-    [Email] NVARCHAR(100) NULL
+    [Email] NVARCHAR(100) NOT NULL
 )
