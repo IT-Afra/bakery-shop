@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[shpOrder]
+(
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
+    [Count] INT NOT NULL,
+    [BreadId] BIGINT NOT NULL, 
+    [UserId] BIGINT NOT NULL
+)

@@ -67,5 +67,8 @@
     <Build Include="dbo\Tables\InfBakeryBrdCategory.sql" />
     <Build Include="dbo\Tables\BrdCategory.sql" />
     <Build Include="dbo\Tables\InfBakery.sql" />
+    <Build Include="dbo\Tables\shpCheckout.sql" />
+    <Build Include="dbo\Tables\shpOrder.sql" />
+    <Build Include="dbo\Tables\gtContactUs.sql" />
   </ItemGroup>
 </Project>
