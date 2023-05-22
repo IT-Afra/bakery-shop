@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[InfBakery]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [BakeryName] NVARCHAR(50) NOT NULL, 
     [BakeryRate] NVARCHAR(50) NULL, 
     [ThumbnailePic] NVARCHAR(50) NOT NULL, 
