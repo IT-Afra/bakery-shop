@@ -4,6 +4,7 @@
     [IsPreparing] BIT NOT NULL DEFAULT 0, 
     [IsSending] BIT NOT NULL DEFAULT 0, 
     [IsFinished] BIT NOT NULL DEFAULT 0, 
+    [DateTime] DATETIME2 NOT NULL,
     [UserId] BIGINT NOT NULL, 
     [UserBakeryId] BIGINT NOT NULL
 )
