@@ -14,5 +14,8 @@
     [City] NVARCHAR(50) NOT NULL, 
     [BreadId] BIGINT NOT NULL, 
     [BkCTId] BIGINT NOT NULL, 
-    [UserBakeryID] BIGINT NOT NULL
+    [UserBakeryID] BIGINT NOT NULL, 
+    CONSTRAINT [FK_InfBakery_BreadId_Bread] FOREIGN KEY ([BreadId]) REFERENCES [Bread]([ID]), 
+    CONSTRAINT [FK_InfBakery_BkCTId_InfBakeryBrdCategory] FOREIGN KEY ([BkCTId]) REFERENCES [InfBakeryBrdCategory]([ID]), 
+    CONSTRAINT [FK_InfBakery_UserBakeryID_usrBaker] FOREIGN KEY ([UserBakeryID]) REFERENCES [usrBaker]([ID])
 )
