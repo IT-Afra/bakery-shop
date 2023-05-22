@@ -56,6 +56,7 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\usrCostumer.sql" />
@@ -65,7 +66,7 @@
     <Build Include="dbo\Tables\shpPreparing.sql" />
     <Build Include="dbo\Tables\Bread.sql" />
     <Build Include="dbo\Tables\InfBakeryBrdCategory.sql" />
-    <Build Include="dbo\Tables\BrdCategory.sql" />
+    <Build Include="dbo\Tables\brdCategory.sql" />
     <Build Include="dbo\Tables\InfBakery.sql" />
     <Build Include="dbo\Tables\shpCheckout.sql" />
     <Build Include="dbo\Tables\shpOrder.sql" />
@@ -73,5 +74,6 @@
     <Build Include="dbo\Tables\usrBaker.sql" />
     <Build Include="dbo\Tables\wltUser.sql" />
     <Build Include="dbo\Tables\wltBaker.sql" />
+    <Build Include="dbo\Stored Procedures\Login.sql" />
   </ItemGroup>
 </Project>
