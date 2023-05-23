@@ -16,7 +16,7 @@ begin
 		end
 	else
 		begin
-			RETURN "0"
+			RETURN "NotFound"
 		end
 
 end
