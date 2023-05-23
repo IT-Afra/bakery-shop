@@ -1,4 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[spFAQ_GetAll]
 AS
-	SELECT * FROM gtFAQ
+	SELECT * FROM [dbo].[gtFAQ]
 
