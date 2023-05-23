@@ -74,8 +74,8 @@
     <Build Include="dbo\Tables\usrBaker.sql" />
     <Build Include="dbo\Tables\wltUser.sql" />
     <Build Include="dbo\Tables\wltBaker.sql" />
-    <Build Include="dbo\Stored Procedures\Login.sql" />
-    <Build Include="dbo\Stored Procedures\SignUp.sql" />
+    <Build Include="dbo\Stored Procedures\spLogin.sql" />
+    <Build Include="dbo\Stored Procedures\spSignUp.sql" />
     <Build Include="dbo\Stored Procedures\spFAQ_GetAll.sql" />
   </ItemGroup>
 </Project>
