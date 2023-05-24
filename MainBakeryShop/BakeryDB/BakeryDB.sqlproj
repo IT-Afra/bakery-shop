@@ -77,5 +77,6 @@
     <Build Include="dbo\Stored Procedures\spLogin.sql" />
     <Build Include="dbo\Stored Procedures\spSignUp.sql" />
     <Build Include="dbo\Stored Procedures\spFAQ_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spAddBakery.sql" />
   </ItemGroup>
 </Project>
