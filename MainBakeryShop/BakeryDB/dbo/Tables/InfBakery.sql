@@ -13,5 +13,5 @@
     [Discriptioin] NVARCHAR(200) NULL, 
     [City] NVARCHAR(50) NOT NULL, 
     [UserBakeryID] BIGINT NOT NULL, 
-    CONSTRAINT [FK_InfBakery_UserBakeryID_usrBaker] FOREIGN KEY ([UserBakeryID]) REFERENCES [usrBaker]([ID])
+    CONSTRAINT [FK_InfBakery_UserBakeryID_usrBaker] FOREIGN KEY ([UserBakeryID]) REFERENCES [usrBaker]([Id])
 )
