@@ -7,16 +7,16 @@ begin
 	if(EXISTS(select * from usrCostumer where(Email=@Email or  UserName=@UserName) and  Password=@Password))
 		begin
 			select * from usrCostumer where (Email=@Email or  UserName=@UserName) and  Password=@Password
-			RETURN "User"
+			RETURN 1
 		end
 	else if(EXISTS(select * from usrBaker where (Email=@Email or  UserName=@UserName) and  Password=@Password))
 		begin
 			select * from usrBaker where (Email=@Email or  UserName=@UserName) and  Password=@Password  
-			RETURN "Baker"
+			RETURN 2
 		end
 	else
 		begin
-			RETURN "NotFound"
+			RETURN 0
 		end
 
 end
