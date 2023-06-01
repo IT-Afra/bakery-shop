@@ -1,8 +1,0 @@
-﻿CREATE TABLE [dbo].[Bread]
-(
-	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
-    [Name] NVARCHAR(50) NOT NULL, 
-    [Count] BIGINT NOT NULL, 
-    [Picture] NVARCHAR(50) NOT NULL, 
-    [Price] BIGINT NOT NULL
-)

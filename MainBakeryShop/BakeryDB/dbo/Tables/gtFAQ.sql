@@ -1,6 +1,0 @@
-﻿CREATE TABLE [dbo].[gtFAQ]
-(
-	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
-    [Question] NVARCHAR(100) NOT NULL, 
-    [Answer] NVARCHAR(500) NOT NULL
-)
