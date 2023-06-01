@@ -1,5 +1,0 @@
-﻿CREATE TABLE [dbo].[gtSignUpRole]
-(
-	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
-    [Text] NVARCHAR(500) NOT NULL
-)
