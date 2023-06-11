@@ -13,7 +13,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
         public long TypeBreadId { get; set; }
         public decimal Price { get; set; }
         public int Amount { get; set; }
-        public int DeliveryAmount { get; set; }
+        public bool IsActive { get; set; }  
         public long? ModifierUser { get; set; }
         public long? ModifierDate { get; set; }
     }

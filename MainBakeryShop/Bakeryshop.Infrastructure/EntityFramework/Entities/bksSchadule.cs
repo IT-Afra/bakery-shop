@@ -12,7 +12,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
         public string OrderDate { get; set; } = null!;
         public long OrderDateL { get; set; }
         public string OrderTime { get; set; } = null!;
-        public int OrderTimel { get; set; }
+        public int OrderTimeL { get; set; }
         public long? ModifierUser { get; set; }
         public long? ModifierDate { get; set; }
     }
