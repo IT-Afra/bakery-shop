@@ -11,9 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bakershop.Domain\Bakeryshop.Domain.csproj" />
-    <ProjectReference Include="..\Bakershop.Framework\Bakeryshop.Framework.csproj" />
-    <ProjectReference Include="..\Bakershop.Infrastructure\Bakeryshop.Infrastructure.csproj" />
+    <ProjectReference Include="..\Bakeryshop.Domain\Bakeryshop.Domain.csproj" />
+    <ProjectReference Include="..\Bakeryshop.Framework\Bakeryshop.Framework.csproj" />
+    <ProjectReference Include="..\Bakeryshop.Infrastructure\Bakeryshop.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
