@@ -30,6 +30,10 @@ namespace Bakeryshop.Infrastructure.Repositories
         {
             throw new NotImplementedException();
         }
+        public void Update(TypeBreadDto objDto)
+        {
+            throw new NotImplementedException();
+        }
 
         public void Delete(long id)
         {
