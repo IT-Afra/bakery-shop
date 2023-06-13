@@ -24,11 +24,11 @@ namespace Bakeryshop.Infrastructure.EntityFramework
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new bksOrderConfiguration());
+            modelBuilder.ApplyConfiguration(new bksOrderConfiguration());
             modelBuilder.ApplyConfiguration(new bksSchaduleConfiguration());
             modelBuilder.ApplyConfiguration(new bksSchaduleDetailConfiguration());
             modelBuilder.ApplyConfiguration(new bksTypeBreadConfiguration());
-           
-
+            modelBuilder.ApplyConfiguration(new gtUserConfiguration());
         }
 
 

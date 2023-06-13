@@ -17,7 +17,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
         public long? ModifierUser { get; set; }
         public long? ModifierDate { get; set; }
 
-        public virtual bksOrder BksOrder { get; set; } = null!;
-        public virtual bksTypeBread BksTypeBread { get; set; } = null!;
+        public virtual bksOrder Order { get; set; } = null!;
+        public virtual bksTypeBread TypeBread { get; set; } = null!;
     }
 }
