@@ -15,5 +15,8 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
         public int OrderTimeL { get; set; }
         public long? ModifierUser { get; set; }
         public long? ModifierDate { get; set; }
+
+
+
     }
 }

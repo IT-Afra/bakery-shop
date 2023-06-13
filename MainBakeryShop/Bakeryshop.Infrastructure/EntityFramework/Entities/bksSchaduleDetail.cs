@@ -16,5 +16,9 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
         public bool IsActive { get; set; }  
         public long? ModifierUser { get; set; }
         public long? ModifierDate { get; set; }
+
+        public virtual bksSchadule Schadule { get; set; } = null!;
+        public virtual bksTypeBread TypeBread { get; set; } = null!;
+
     }
 }
