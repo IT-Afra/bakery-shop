@@ -18,5 +18,8 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
         public decimal TotalPrice { get; set; }
         public long? ModifierUser { get; set; }
         public long? ModifierDate { get; set; }
+
+        public virtual ICollection<bksSchadule> Schadules { get; set; } = null!;
+        public virtual gtUser User { get; set; } = null!;
     }
 }
