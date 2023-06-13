@@ -27,6 +27,8 @@ namespace Bakeryshop.Infrastructure.EntityFramework
             modelBuilder.ApplyConfiguration(new bksSchaduleConfiguration());
             modelBuilder.ApplyConfiguration(new bksSchaduleDetailConfiguration());
             modelBuilder.ApplyConfiguration(new bksTypeBreadConfiguration());
+           
+
 <<<<<<< HEAD
             modelBuilder.ApplyConfiguration(new bksOrderConfiguration());
             modelBuilder.ApplyConfiguration(new gtUserConfiguration());
