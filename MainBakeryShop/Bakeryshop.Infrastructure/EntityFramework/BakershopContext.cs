@@ -13,12 +13,23 @@ namespace Bakeryshop.Infrastructure.EntityFramework
         {
             optionBuilder.UseSqlServer("Data Source=.;Initial Catalog=Bakeryshop;Integrated Security=True");
         }
+        public virtual DbSet<bksOrder> bksOrders { get; set; } = null!;
+        public virtual DbSet<bksOrderDetail> bksOrderDetails { get; set; } = null!;
+        public virtual DbSet<bksSchadule> bksSchadules { get; set; } = null!;
+        public virtual DbSet<bksSchaduleDetail> bksSchaduleDetails { get; set; } = null!;
         public virtual DbSet<bksTypeBread> bksTypeBreads { get; set; } = null!;
+        public virtual DbSet<gtUser> gtUsers { get; set; } = null!;
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new bksOrderConfiguration());
             modelBuilder.ApplyConfiguration(new bksTypeBreadConfiguration());
+           
+
         }
+
+
 
     }
 }

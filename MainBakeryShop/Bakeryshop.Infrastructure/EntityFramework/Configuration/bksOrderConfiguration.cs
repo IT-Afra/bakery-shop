@@ -23,6 +23,11 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
 
             builder.Property(s => s.TotalPrice).HasMaxLength(18).IsRequired();
 
+            builder.HasOne(s=>s.User)
+                         .WithMany()
+                         .HasForeignKey(s => s.UserId)
+                         .OnDelete(DeleteBehavior.Cascade);
+
 
 
         }
