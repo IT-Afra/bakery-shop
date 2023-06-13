@@ -17,8 +17,8 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
         public long? ModifierUser { get; set; }
         public long? ModifierDate { get; set; }
 
-        public virtual ICollection<bksSchadule> Schadules { get; set; } = null!;
-        public virtual ICollection<bksTypeBread> TypeBreads { get; set; } = null!;
+        public virtual bksSchadule Schadule { get; set; } = null!;
+        public virtual bksTypeBread TypeBread { get; set; } = null!;
 
     }
 }
