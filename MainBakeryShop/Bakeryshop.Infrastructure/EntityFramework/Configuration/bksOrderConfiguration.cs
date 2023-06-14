@@ -18,6 +18,8 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
             builder.HasKey(b => b.Id);
 
             builder.Property(s => s.RegisterDateTime).HasMaxLength(21).IsRequired();
+            
+            builder.Property(s => s.RegisterDateTimeL).IsRequired();
 
             builder.Property(s => s.DeliveryDateTime).HasMaxLength(21);
 

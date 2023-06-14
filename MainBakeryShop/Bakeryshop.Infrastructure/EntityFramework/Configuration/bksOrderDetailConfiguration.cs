@@ -21,8 +21,6 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
 
             builder.Property(s => s.Amount).IsRequired();
 
-            builder.Property(s => s.DeliveryAmount);
-
             builder.HasOne(s => s.Order)
                 .WithMany()
                 .HasForeignKey(s => s.OrderId)
