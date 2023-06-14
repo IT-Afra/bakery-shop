@@ -14,6 +14,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
 
             builder.Property(s => s.Name).HasMaxLength(100).IsRequired();
             builder.Property(s => s.PhotoGuid).HasMaxLength(100).IsRequired();
+            builder.Property(s => s.IsActive).IsRequired();
         }
     }
 }
