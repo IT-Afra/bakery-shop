@@ -19,7 +19,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
         public long? ModifierUser { get; set; }
         public long? ModifierDate { get; set; }
 
-        public virtual ICollection<bksSchadule> Schadules { get; set; } = null!;
+        public virtual bksSchadule Schadule { get; set; } = null!;
         public virtual gtUser User { get; set; } = null!;
     }
 }

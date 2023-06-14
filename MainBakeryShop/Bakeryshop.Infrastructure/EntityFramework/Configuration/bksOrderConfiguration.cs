@@ -32,6 +32,11 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
 
 
 
+            builder.HasOne(s => s.Schadule)
+                         .WithMany()
+                         .HasForeignKey(s => s.SchaduleId)
+                         .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

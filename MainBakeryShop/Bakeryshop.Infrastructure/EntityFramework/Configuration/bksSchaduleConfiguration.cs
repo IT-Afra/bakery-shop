@@ -13,7 +13,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<bksSchadule> builder)
         {
-            builder.ToTable("bksSchadule");
+            builder.ToTable(nameof(bksSchadule));
 
             builder.HasKey(b => b.Id);
 
