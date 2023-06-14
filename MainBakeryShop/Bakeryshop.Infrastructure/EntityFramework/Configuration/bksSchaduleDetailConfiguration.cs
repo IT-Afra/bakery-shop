@@ -24,7 +24,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
             builder.Property(s => s.IsActive).IsRequired();
 
             builder.HasOne(s => s.Schadule)
-                .WithMany()
+                .WithMany(s => s.SchaduleDetails)
                 .HasForeignKey(s => s.SchaduleId)
                 .OnDelete(DeleteBehavior.Cascade);
 

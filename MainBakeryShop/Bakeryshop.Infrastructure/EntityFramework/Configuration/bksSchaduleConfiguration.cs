@@ -17,13 +17,13 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
 
             builder.HasKey(b => b.Id);
 
-            builder.Property(s => s.OrderDate).HasMaxLength(10).IsRequired();
+            builder.Property(s => s.SchaduleDate).HasMaxLength(10).IsRequired();
 
-            builder.Property(s => s.OrderDateL).IsRequired();
+            builder.Property(s => s.SchaduleDateL).IsRequired();
 
-            builder.Property(s => s.OrderTime).HasMaxLength(10).IsRequired();
+            builder.Property(s => s.SchaduleTime).HasMaxLength(10).IsRequired();
 
-            builder.Property(s => s.OrderTimeL).IsRequired();
+            builder.Property(s => s.SchaduleTimeL).IsRequired();
         }
     }
 }
