@@ -41,6 +41,11 @@ namespace Bakeryshop.Domain.Dtos
         [Required(ErrorMessage = ErrorReource.Required)]
         public bool PhoneNumberConfirmed { get; set; }
 
+        [Display(Name = "آدرس")]
+        [MaxLength(250, ErrorMessage = ErrorReource.MaxLength)]
+        [Required(ErrorMessage = ErrorReource.Required)]
+        public string Address { get; set; } = null!;
+
         [Display(Name = "ایمیل")]
         [MaxLength(150, ErrorMessage = ErrorReource.MaxLength)]
         public string? Email { get; set; }

@@ -31,11 +31,13 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
 
             builder.Property(s => s.PhoneNumberConfirmed).IsRequired();
 
-            builder.Property(s => s.Email).HasMaxLength(150);
+            builder.Property(s => s.Address).HasMaxLength(250).IsRequired();
+
+            builder.Property(s => s.Email).HasMaxLength(150).IsRequired();
 
             builder.Property(s => s.EmailConfirmed).IsRequired();
 
-            builder.Property(s => s.Password).HasMaxLength(256);
+            builder.Property(s => s.Password).HasMaxLength(256).IsRequired();
 
             builder.Property(s => s.LockoutEnabled).IsRequired();
 
