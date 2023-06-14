@@ -10,35 +10,36 @@ namespace Bakeryshop.Domain.Dtos
 {
     public class OrderDto
     {
-        [Display(Name = "شناسه")]
-        public long Id { get; set; }
 
-        [Display(Name = "شناسه کاربر")]
-        public long UserId { get; set; }
+        public OrderDto()
+        {
+            OrderDetails = new List<OrderDetailDto>();
+        }
+
+        [Display(Name = "شناسه")]
+        public long? Id { get; set; }
 
         [Display(Name = "شناسه زمانبندی")]
-        public long SchaduleId { get; set; }
+        [Required(ErrorMessage = ErrorReource.Required)]
+        public long? SchaduleId { get; set; }
+
+        [Display(Name = "تاریخ زمانبندی")]
+        public string? SchaduleDate { get; set; }
+
+        [Display(Name = "ساعت زمانبندی")]
+        public string? SchaduleTime { get; set; }
 
         [Display(Name = "تاریخ ثبت به حروف")]
         [Required(ErrorMessage = ErrorReource.Required)]
         [MaxLength(21, ErrorMessage = ErrorReource.MaxLength)]
-        public string RegisterDateTime { get; set; } = null!;
-
-        [Display(Name = "تاریخ ثبت به عدد")]
-        [Required(ErrorMessage = ErrorReource.Required)]
-        [MaxLength(8, ErrorMessage = ErrorReource.MaxLength)]
-        public long RegisterDateTimeL { get; set; }
+        public string? RegisterDateTime { get; set; } = null!;
 
         [Display(Name = "تاریخ ارسال به حروف")]
         public string? DeliveryDateTime { get; set; }
 
-
-        [Display(Name = "تاریخ ارسال به عدد")]
-        public long? DeliveryDateTimeL { get; set; }
-
         [Display(Name = "قیمت کل")]
-        [Required(ErrorMessage = ErrorReource.Required)]
-        public decimal TotalPrice { get; set; }
+        public decimal? TotalPrice { get; set; }
 
+        public List<OrderDetailDto> OrderDetails { get; set; }
     }
 }

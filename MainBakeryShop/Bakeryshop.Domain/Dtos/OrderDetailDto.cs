@@ -11,18 +11,17 @@ namespace Bakeryshop.Domain.Dtos
     public class OrderDetailDto
     {
         [Display(Name = "شناسه")]
-        public long Id { get; set; }
-
-        [Display(Name = "شناسه سفارش")]
-        public long OrderId { get; set; }
+        public long? Id { get; set; }
 
         [Display(Name = "شناسه نوع نان")]
-        public long TypeBreadId { get; set; }
+        [Required(ErrorMessage = ErrorReource.Required)]
+        public long? TypeBreadId { get; set; }
+
+        [Display(Name = "شناسه نوع نان")]
+        public string? TypeBreadName { get; set; }
 
         [Display(Name = "قیمت")]
-        [MaxLength(18, ErrorMessage = ErrorReource.MaxLength)]
-        [Required(ErrorMessage = ErrorReource.Required)]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
         [Display(Name = "تعداد")]
         [Required(ErrorMessage = ErrorReource.Required)]

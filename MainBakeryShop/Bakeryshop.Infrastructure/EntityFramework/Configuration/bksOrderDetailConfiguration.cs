@@ -22,7 +22,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
             builder.Property(s => s.Amount).IsRequired();
 
             builder.HasOne(s => s.Order)
-                .WithMany()
+                .WithMany(d => d.OrderDetails)
                 .HasForeignKey(s => s.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
 

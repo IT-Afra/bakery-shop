@@ -8,12 +8,12 @@ namespace Bakeryshop.Infrastructure.Repositories
 {
     public class TypeBreadRepository : ITypeBreadRepository
     {
-        private BakershopContext dbContext { get; set; }
+        private BakeryshopContext dbContext { get; set; }
         private IMapper mapper { get; set; }
 
         public TypeBreadRepository()
         {
-            dbContext = new BakershopContext();
+            dbContext = new BakeryshopContext();
 
             var config = new MapperConfiguration(cfg => 
                 cfg.CreateMap<bksTypeBread, TypeBreadDto>().ReverseMap()

@@ -8,15 +8,19 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
 {
     public class bksSchadule
     {
+        public bksSchadule()
+        {
+            SchaduleDetails = new HashSet<bksSchaduleDetail>();
+        }
+
         public long Id { get; set; }
-        public string OrderDate { get; set; } = null!;
-        public long OrderDateL { get; set; }
-        public string OrderTime { get; set; } = null!;
-        public int OrderTimeL { get; set; }
+        public string SchaduleDate { get; set; } = null!;
+        public long SchaduleDateL { get; set; }
+        public string SchaduleTime { get; set; } = null!;
+        public int SchaduleTimeL { get; set; }
         public long? ModifierUser { get; set; }
         public long? ModifierDate { get; set; }
 
-
-
+        public virtual ICollection<bksSchaduleDetail> SchaduleDetails { get; set; }
     }
 }

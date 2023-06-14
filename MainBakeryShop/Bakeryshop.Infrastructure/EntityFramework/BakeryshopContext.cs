@@ -6,7 +6,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework
 {
     
     
-    public class BakershopContext : DbContext
+    public class BakeryshopContext : DbContext
     {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)

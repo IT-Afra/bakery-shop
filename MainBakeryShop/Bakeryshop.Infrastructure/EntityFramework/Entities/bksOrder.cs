@@ -8,6 +8,11 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
 {
     public class bksOrder
     {
+        public bksOrder()
+        {
+            OrderDetails = new HashSet<bksOrderDetail>();
+        }
+
         public long Id { get; set; }
         public long UserId { get; set; }
         public long SchaduleId { get; set; }
@@ -21,5 +26,6 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
 
         public virtual bksSchadule Schadule { get; set; } = null!;
         public virtual gtUser User { get; set; } = null!;
+        public virtual ICollection<bksOrderDetail> OrderDetails { get; set; }
     }
 }
