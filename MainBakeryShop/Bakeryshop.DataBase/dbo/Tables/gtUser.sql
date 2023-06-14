@@ -8,9 +8,10 @@
     [InfoConfirmed]        BIT            NOT NULL,
     [PhoneNumber]          NVARCHAR (15)  NOT NULL,
     [PhoneNumberConfirmed] BIT            NOT NULL,
-    [Email]                NVARCHAR (150) NULL,
+    [Address]              NVARCHAR (250) NOT NULL,
+    [Email]                NVARCHAR (150) NOT NULL,
     [EmailConfirmed]       BIT            NOT NULL,
-    [Password]             NVARCHAR (256) NULL,
+    [Password]             NVARCHAR (256) NOT NULL,
     [LockoutEnabled]       BIT            NOT NULL,
     [LockoutEnd]           DATETIME2 (7)  NULL,
     [AccessFailedCount]    INT            NOT NULL,
@@ -23,4 +24,8 @@
     [ModifierDate]         BIGINT         NULL,
     CONSTRAINT [PK_gtUser] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
+
+
 
