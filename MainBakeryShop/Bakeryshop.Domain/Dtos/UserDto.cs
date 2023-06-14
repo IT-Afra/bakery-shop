@@ -47,6 +47,7 @@ namespace Bakeryshop.Domain.Dtos
         public string Address { get; set; } = null!;
 
         [Display(Name = "ایمیل")]
+        [Required(ErrorMessage = ErrorReource.Required)]
         [MaxLength(150, ErrorMessage = ErrorReource.MaxLength)]
         public string? Email { get; set; }
 
@@ -55,6 +56,7 @@ namespace Bakeryshop.Domain.Dtos
         public bool EmailConfirmed { get; set; }
 
         [Display(Name = "رمزعبور")]
+        [Required(ErrorMessage = ErrorReource.Required)]
         [MaxLength(256, ErrorMessage = ErrorReource.MaxLength)]
         public string? Password { get; set; }
 

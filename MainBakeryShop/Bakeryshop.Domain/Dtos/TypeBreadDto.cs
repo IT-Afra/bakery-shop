@@ -13,14 +13,14 @@ namespace Bakeryshop.Domain.Dtos
         [Display(Name = "نام")]
         [Required(ErrorMessage = ErrorReource.Required)]
         [MaxLength(100, ErrorMessage = ErrorReource.MaxLength)]
-        public string? Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Display(Name = "تصویر")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public string? PhotoGuid { get; set; }
+        public string PhotoGuid { get; set; } = null!;
 
         [Display(Name = "وضعیت")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public bool? IsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }
