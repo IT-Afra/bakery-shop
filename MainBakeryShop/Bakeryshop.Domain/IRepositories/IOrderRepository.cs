@@ -9,9 +9,8 @@ namespace Bakeryshop.Domain.IRepositories
 {
     public interface IOrderRepository
     {
-        public List<OrderDto> GetAll();
-        public void Update(OrderDto objDto);
-        public void Save(OrderDto objDto);
-        public void Delete(long id);
+        public List<DeliveryDto> GetAllReserve();
+        public List<OrderDto> NewReserve(long UserId, long SchaduleID);
+        public void ReserveCancel(long UserId);
     }
 }

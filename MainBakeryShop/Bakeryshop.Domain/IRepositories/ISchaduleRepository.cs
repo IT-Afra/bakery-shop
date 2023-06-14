@@ -9,9 +9,12 @@ namespace Bakeryshop.Domain.IRepositories
 {
     public interface ISchaduleRepository
     {
-        public List<SchaduleDto> GetAll();
-        public void Update(SchaduleDto objDto);
-        public void Save(SchaduleDto objDto);
-        public void Delete(long id);
+        public List<SchaduleDetailDto> GetSchaduleByDate(DateTime dateTime);
+        public void AddSchadule(SchaduleDto schaduleDto);
+        public void EditSchadule(SchaduleDto schaduleDto);
+        public void DeleteSchadule(long SchaduleID);
+        public void AddSchaduleDetail(SchaduleDetailDto schaduleDetailDto);
+        public void EditSchaduleDetail(SchaduleDetailDto schaduleDetailDto);
+        public void DeleteSchaduleDetail(long SchaduleDetailID);
     }
 }

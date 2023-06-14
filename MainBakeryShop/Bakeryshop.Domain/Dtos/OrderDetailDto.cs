@@ -20,12 +20,12 @@ namespace Bakeryshop.Domain.Dtos
         public long TypeBreadId { get; set; }
 
         [Display(Name = "قیمت")]
+        [MaxLength(18, ErrorMessage = ErrorReource.MaxLength)]
         [Required(ErrorMessage = ErrorReource.Required)]
         public decimal Price { get; set; }
 
         [Display(Name = "تعداد")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        [MaxLength(4, ErrorMessage = ErrorReource.MaxLength)]
         public int Amount { get; set; }
 
         [Display(Name = "تعداد سفارش")]
