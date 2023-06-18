@@ -1,5 +1,4 @@
-﻿
-using Bakeryshop.Framework;
+﻿using Bakeryshop.Framework;
 using System.ComponentModel.DataAnnotations;
 
 namespace Bakeryshop.Domain.Dtos
@@ -7,7 +6,7 @@ namespace Bakeryshop.Domain.Dtos
     public class UserDto
     {
         [Display(Name = "شناسه")]
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         [Display(Name = "عنوان")]
         [MaxLength(150, ErrorMessage = ErrorReource.MaxLength)]
@@ -30,21 +29,21 @@ namespace Bakeryshop.Domain.Dtos
 
         [Display(Name = "تایید اطلاعات")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public bool InfoConfirmed { get; set; }
+        public bool? InfoConfirmed { get; set; }
 
         [Display(Name = "شماره تلفن")]
         [MaxLength(15, ErrorMessage = ErrorReource.MaxLength)]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public string PhoneNumber { get; set; } = null!;
+        public string? PhoneNumber { get; set; } = null!;
 
         [Display(Name = "تایید شماره تلفن")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public bool PhoneNumberConfirmed { get; set; }
+        public bool? PhoneNumberConfirmed { get; set; }
 
         [Display(Name = "آدرس")]
         [MaxLength(250, ErrorMessage = ErrorReource.MaxLength)]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public string Address { get; set; } = null!;
+        public string? Address { get; set; } = null!;
 
         [Display(Name = "ایمیل")]
         [Required(ErrorMessage = ErrorReource.Required)]
@@ -53,7 +52,7 @@ namespace Bakeryshop.Domain.Dtos
 
         [Display(Name = "تایید ایمیل")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public bool EmailConfirmed { get; set; }
+        public bool? EmailConfirmed { get; set; }
 
         [Display(Name = "رمزعبور")]
         [Required(ErrorMessage = ErrorReource.Required)]
@@ -62,22 +61,22 @@ namespace Bakeryshop.Domain.Dtos
 
         [Display(Name = "قفل حساب کاربری")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public bool LockoutEnabled { get; set; }
+        public bool? LockoutEnabled { get; set; }
 
         [Display(Name = "پایان قفل حساب کاربری")]
         public DateTime? LockoutEnd { get; set; }
 
         [Display(Name = "شمارش دسترسی ناموفق")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public int AccessFailedCount { get; set; }
+        public int? AccessFailedCount { get; set; }
 
         [Display(Name = "شمارش نوتیف  ")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public int NotificationCount { get; set; }
+        public int? NotificationCount { get; set; }
 
         [Display(Name = "شمارش پیام")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public int MessageCount { get; set; }
+        public int? MessageCount { get; set; }
 
         [Display(Name = "شناسه یکتای سراسری عکس ")]
         [MaxLength(50, ErrorMessage = ErrorReource.MaxLength)]
@@ -85,10 +84,10 @@ namespace Bakeryshop.Domain.Dtos
 
         [Display(Name = "مسدویت پیام")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public bool IsMessageBlocked { get; set; }
+        public bool? IsMessageBlocked { get; set; }
 
         [Display(Name = "وضعیت")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
     }
 }
