@@ -8,10 +8,8 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<bksTypeBread> builder)
         {
-            builder.ToTable("bksTypeBread");
-           
+            builder.ToTable(nameof(bksTypeBread));
             builder.HasKey(b => b.Id);
-
             builder.Property(s => s.Name).HasMaxLength(100).IsRequired();
             builder.Property(s => s.PhotoGuid).HasMaxLength(100).IsRequired();
             builder.Property(s => s.IsActive).IsRequired();

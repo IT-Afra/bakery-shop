@@ -1,10 +1,5 @@
 ﻿using Bakeryshop.Framework;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bakeryshop.Domain.Dtos
 {
@@ -17,7 +12,8 @@ namespace Bakeryshop.Domain.Dtos
         [Required(ErrorMessage = ErrorReource.Required)]
         public long? TypeBreadId { get; set; }
 
-        [Display(Name = "شناسه نوع نان")]
+        [Display(Name = "نام نوع نان")]
+        // Add this new field to database and define MaxLenght here!
         public string? TypeBreadName { get; set; }
 
         [Display(Name = "قیمت")]
@@ -25,9 +21,9 @@ namespace Bakeryshop.Domain.Dtos
 
         [Display(Name = "تعداد")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public int Amount { get; set; }
+        public int? Amount { get; set; }
 
         [Display(Name = "تعداد سفارش")]
-        public int DeliveryAmount { get; set; }
+        public int? DeliveryAmount { get; set; }
     }
 }
