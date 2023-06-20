@@ -1,10 +1,5 @@
 ﻿using Bakeryshop.Framework;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bakeryshop.Domain.Dtos
 {
@@ -12,28 +7,28 @@ namespace Bakeryshop.Domain.Dtos
     {
         [Display(Name = "نام")]
         [MaxLength(100, ErrorMessage = ErrorReource.MaxLength)]
-        public string Name { get; set; } = null!;
+        public string? Name { get; set; } = null!;
 
         [Display(Name = "نام خانوادگی")]
         [MaxLength(100, ErrorMessage = ErrorReource.MaxLength)]
-        public string Family { get; set; } = null!;
+        public string? Family { get; set; } = null!;
 
         [Display(Name = "آدرس")]
         [MaxLength(250, ErrorMessage = ErrorReource.MaxLength)]
-        public string Address { get; set; } = null!;
+        public string? Address { get; set; } = null!;
 
         [Display(Name = "شماره تلفن")]
         [MaxLength(15, ErrorMessage = ErrorReource.MaxLength)]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public string PhoneNumber { get; set; } = null!;
+        public string? PhoneNumber { get; set; } = null!;
 
         [Display(Name = "نوع نان")]
         [Required(ErrorMessage = ErrorReource.Required)]
         [MaxLength(100, ErrorMessage = ErrorReource.MaxLength)]
-        public string TypeBreadName { get; set; } = null!;
+        public string? TypeBreadName { get; set; } = null!;
 
         [Display(Name = "تعداد سفارش")]
         [Required(ErrorMessage = ErrorReource.Required)]
-        public int DeliveryAmount { get; set; }
+        public int? DeliveryAmount { get; set; }
     }
 }
