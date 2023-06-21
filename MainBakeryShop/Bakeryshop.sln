@@ -10,9 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00.Framework", "00.Framework", "{437B4D2D-D0BD-4D30-AE9F-25DF02DC0D92}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "11.Bakeryshop", "11.Bakeryshop", "{563DCD8D-83C8-4C7D-9D79-782CDAE10190}"
-	ProjectSection(SolutionItems) = preProject
-		Bakeryshop.Domain\Dtos\SchaduleDto.cs = Bakeryshop.Domain\Dtos\SchaduleDto.cs
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bakeryshop.Infrastructure", "Bakeryshop.Infrastructure\Bakeryshop.Infrastructure.csproj", "{96B79251-1220-4AF2-9424-D0491E54DC0F}"
 EndProject

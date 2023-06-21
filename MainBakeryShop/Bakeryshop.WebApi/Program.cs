@@ -1,12 +1,28 @@
+using Bakeryshop.Domain.IRepositories;
+using Bakeryshop.Infrastructure.EntityFramework;
+using Bakeryshop.Infrastructure.Mapper;
+using Bakeryshop.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<BakeryshopContext>();
+
+
+builder.Services.AddAutoMapper(typeof(OrderProfile));
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+builder.Services.AddAutoMapper(typeof(SchaduleProfile));
+builder.Services.AddScoped<ISchaduleRepository, SchaduleRepository>();
+
+builder.Services.AddAutoMapper(typeof(TypeBreadProfile));
+builder.Services.AddScoped<ITypeBreadRepository, TypeBreadRepository>();
 
 var app = builder.Build();
 
