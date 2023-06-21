@@ -8,36 +8,47 @@ namespace Bakeryshop.Infrastructure.Repositories
 {
     public class TypeBreadRepository : ITypeBreadRepository
     {
-        private BakeryshopContext dbContext { get; set; }
-        private IMapper mapper { get; set; }
+        private readonly BakeryshopContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public TypeBreadRepository()
+        public TypeBreadRepository(BakeryshopContext dbContext, IMapper mapper)
         {
-            dbContext = new BakeryshopContext();
-
-            var config = new MapperConfiguration(cfg => 
-                cfg.CreateMap<bksTypeBread, TypeBreadDto>().ReverseMap()
-            );
-            mapper = new Mapper(config);
+            _dbContext = dbContext;
+            _mapper = mapper;
         }
             
         public List<TypeBreadDto> GetAll()
         {
-            return mapper.Map<List<TypeBreadDto>>( dbContext.bksTypeBreads.ToList());
+            return _mapper.Map<List<TypeBreadDto>>( _dbContext.bksTypeBreads.ToList());
         }
 
-        public void Save(TypeBreadDto objDto)
+        public TypeBreadDto Save(TypeBreadDto objDto)
         {
-            throw new NotImplementedException();
-        }
-        public void Update(TypeBreadDto objDto)
-        {
-            throw new NotImplementedException();
+            var typeBread = _mapper.Map<bksTypeBread>(objDto);
+            if (typeBread.Id != 0)
+            {
+                _dbContext.Add(typeBread);
+            }
+            else 
+            {
+                _dbContext.Update(typeBread);
+            }
+            
+            _dbContext.SaveChanges();
+
+            return _mapper.Map<TypeBreadDto>(
+                _dbContext.bksTypeBreads
+                .Where(a=> a.Id == typeBread.Id));
         }
 
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            var typeBread = _dbContext.bksTypeBreads.Where(a=>a.Id == id).FirstOrDefault();
+            if (typeBread != null) 
+            {
+                _dbContext.bksTypeBreads.Remove(typeBread);
+                _dbContext.SaveChanges();
+            }
         }
     }
 }
