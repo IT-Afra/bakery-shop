@@ -70,7 +70,7 @@ namespace Bakeryshop.Domain.Dtos
         [Required(ErrorMessage = ErrorReource.Required)]
         public int? AccessFailedCount { get; set; }
 
-        [Display(Name = "شمارش نوتیف  ")]
+        [Display(Name = "شمارش نوتیف")]
         [Required(ErrorMessage = ErrorReource.Required)]
         public int? NotificationCount { get; set; }
 
@@ -78,7 +78,7 @@ namespace Bakeryshop.Domain.Dtos
         [Required(ErrorMessage = ErrorReource.Required)]
         public int? MessageCount { get; set; }
 
-        [Display(Name = "شناسه یکتای سراسری عکس ")]
+        [Display(Name = "تصویر ")]
         [MaxLength(50, ErrorMessage = ErrorReource.MaxLength)]
         public string? PhotoGuid { get; set; }
 

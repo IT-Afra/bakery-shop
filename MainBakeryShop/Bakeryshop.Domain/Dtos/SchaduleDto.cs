@@ -13,12 +13,12 @@ namespace Bakeryshop.Domain.Dtos
         [Display(Name ="شناسه")]
         public long? Id { get; set; }
 
-        [Display(Name = " تاریخ سفارش به حروف")]
+        [Display(Name = "تاریخ سفارش")]
         [Required(ErrorMessage = ErrorReource.Required)]
         [MaxLength(10, ErrorMessage = ErrorReource.MaxLength)]
         public string? SchaduleDate { get; set; } = null!;
 
-        [Display(Name = "ساعت سفارش به حروف")]
+        [Display(Name = "ساعت سفارش")]
         [MaxLength(10, ErrorMessage = ErrorReource.MaxLength)]
         [Required(ErrorMessage = ErrorReource.Required)]
         public string? SchaduleTime { get; set; } = null!;

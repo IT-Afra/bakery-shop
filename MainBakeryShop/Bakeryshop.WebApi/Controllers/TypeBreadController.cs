@@ -10,17 +10,17 @@ namespace Bakershop.WebApi.Controllers
     [ApiController]
     public class TypeBreadController : ControllerBase
     {
-        private ITypeBreadRepository typeBreadRepository { get; set; }
+        private readonly ITypeBreadRepository _typeBreadRepository;
 
-        public TypeBreadController()
+        public TypeBreadController(ITypeBreadRepository typeBreadRepository)
         {
-            typeBreadRepository = new TypeBreadRepository();
+            _typeBreadRepository = typeBreadRepository;
         }
 
         [HttpGet]
         public ActionResult<List<TypeBreadDto>> Get() 
         {
-            return Ok(typeBreadRepository.GetAll());
+            return Ok(_typeBreadRepository.GetAll());
         }
 
     }
