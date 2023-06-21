@@ -25,7 +25,7 @@ namespace Bakeryshop.Infrastructure.Repositories
         public TypeBreadDto Save(TypeBreadDto objDto)
         {
             var typeBread = _mapper.Map<bksTypeBread>(objDto);
-            if (typeBread.Id != 0)
+            if (typeBread.Id == 0)
             {
                 _dbContext.Add(typeBread);
             }
