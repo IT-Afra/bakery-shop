@@ -30,7 +30,16 @@ namespace Bakeryshop.Infrastructure.Repositories
 
         public void Delete(long UserId, long id)
         {
-            throw new NotImplementedException();
+            var orderEntriy = _dbContext.bksOrders
+                 .Where(a => a.Id == id && a.UserId == UserId)
+                 .FirstOrDefault();
+
+            if (orderEntriy != null) 
+            {
+                _dbContext.bksOrders.Remove(orderEntriy);
+                _dbContext.SaveChanges();
+            }
+           
         }
 
 
