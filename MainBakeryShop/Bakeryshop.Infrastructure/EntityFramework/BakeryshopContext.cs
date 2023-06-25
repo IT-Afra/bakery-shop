@@ -9,10 +9,11 @@ namespace Bakeryshop.Infrastructure.EntityFramework
     public class BakeryshopContext : DbContext
     {
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
+        public BakeryshopContext(DbContextOptions<BakeryshopContext> options) : base(options)
         {
-            optionBuilder.UseSqlServer("Data Source=.;Initial Catalog=Bakeryshop;Integrated Security=True");
+
         }
+
         public virtual DbSet<bksOrder> bksOrders { get; set; } = null!;
         public virtual DbSet<bksOrderDetail> bksOrderDetails { get; set; } = null!;
         public virtual DbSet<bksSchadule> bksSchadules { get; set; } = null!;
