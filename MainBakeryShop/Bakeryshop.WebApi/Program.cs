@@ -5,24 +5,15 @@ using Bakeryshop.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var configuration = builder.Configuration;
+
 // Add services to the container.
 
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddDbContext<BakeryshopContext>();
-
-
-builder.Services.AddAutoMapper(typeof(OrderProfile));
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-
-builder.Services.AddAutoMapper(typeof(SchaduleProfile));
-builder.Services.AddScoped<ISchaduleRepository, SchaduleRepository>();
-
-builder.Services.AddAutoMapper(typeof(TypeBreadProfile));
-builder.Services.AddScoped<ITypeBreadRepository, TypeBreadRepository>();
+builder.Services.AddMainServices(configuration);
 
 var app = builder.Build();
 
