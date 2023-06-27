@@ -25,9 +25,15 @@ namespace Bakeryshop.WebApi.Controllers
             return Ok(_orderRepository.GetAll(UserId));
         }
 
+        [HttpPost]
+        public ActionResult<OrderDto> Save([FromBody] long UserId, [FromBody] OrderDto objDto)
+        {
+            return Ok(_orderRepository.Save(UserId, objDto));
+        }
+
         [HttpDelete]
         [Route("{UserId:long}/{id:long}")]
-        public IActionResult Delete(long UserId, long id)
+        public IActionResult Delete( long UserId, long id)
         {
             _orderRepository.Delete(UserId, id);
             return Ok();
