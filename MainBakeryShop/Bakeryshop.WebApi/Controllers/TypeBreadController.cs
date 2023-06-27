@@ -23,5 +23,18 @@ namespace Bakershop.WebApi.Controllers
             return Ok(_typeBreadRepository.GetAll());
         }
 
+        [HttpPost]
+        public ActionResult<List<TypeBreadDto>> Save([FromBody]TypeBreadDto objDto)
+        {
+            return Ok(_typeBreadRepository.Save(objDto));
+        }
+
+        [HttpDelete]
+        [Route("{id:long}")]
+        public IActionResult Delete(long id)
+        {
+            _typeBreadRepository.Delete(id);
+            return Ok(); 
+        }
     }
 }
