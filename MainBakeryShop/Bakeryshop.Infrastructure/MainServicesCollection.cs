@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-    public static class GeneralServiceCollection
+    public static class MainServicesCollection
     {
         public static IServiceCollection AddMainServices(this IServiceCollection services, ConfigurationManager configurationManager)
         {
