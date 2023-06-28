@@ -25,6 +25,19 @@ namespace Bakeryshop.Infrastructure.Repositories
                 .Include(a => a.SchaduleDetails).ToList());
         }
 
+        public void Delete(long Id )
+        {
+            var SchaduleDel = _dbContext.bksSchadules
+                .Where(a =>a.Id == Id).FirstOrDefault();
+
+            if (SchaduleDel != null)
+            {
+                _dbContext.bksSchadules.Remove(SchaduleDel);
+                _dbContext.SaveChanges();
+            }
+        }
+
+
         public List<SchaduleDto> GetSchaduleByDate(string dateTime)
         {
             return _mapper.Map<List<SchaduleDto>>(
@@ -50,18 +63,6 @@ namespace Bakeryshop.Infrastructure.Repositories
             return _mapper.Map<SchaduleDto>(_dbContext.bksSchadules
                     .Include(a => a.SchaduleDetails)
                         .Where(a => a.Id == SchaduleSave.Id));
-
-        }
-        public void Delete(long Id)
-        {
-            var SchaduleDel = _dbContext.bksSchadules
-                .Where(a => a.Id == Id).FirstOrDefault();
-
-            if (SchaduleDel != null)
-            {
-                _dbContext.bksSchadules.Remove(SchaduleDel);
-                _dbContext.SaveChanges();
-            }
         }
     }
 }
