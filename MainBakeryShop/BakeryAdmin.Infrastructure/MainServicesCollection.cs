@@ -1,7 +1,7 @@
-﻿using Bakeryshop.Domain.IRepositories;
+﻿using BakeryAdmin.Domain.IRepositories;
 using Bakeryshop.Infrastructure.EntityFramework;
-using Bakeryshop.Infrastructure.Mapper;
-using Bakeryshop.Infrastructure.Repositories;
+using BakeryAdmin.Infrastructure.Mapper;
+using BakeryAdmin.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
@@ -15,13 +15,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddDbContext<BakeryshopContext>(options =>
                 options.UseSqlServer(configurationManager.GetConnectionString("BakeryshopConnection")));
 
-            services.AddAutoMapper(typeof(OrderProfile));
-            services.AddScoped<IOrderRepository, OrderRepository>();
-
-            services.AddAutoMapper(typeof(SchaduleProfile));
-            services.AddScoped<ISchaduleRepository, SchaduleRepository>();
-
-            services.AddAutoMapper(typeof(UserProfile));
+            services.AddAutoMapper(typeof(TypeBreadProfile));
+            services.AddScoped<ITypeBreadRepository, TypeBreadRepository>();
 
             return services;
         }

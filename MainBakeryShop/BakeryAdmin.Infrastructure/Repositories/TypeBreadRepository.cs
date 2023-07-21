@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Bakeryshop.Infrastructure.EntityFramework;
 using Bakeryshop.Infrastructure.EntityFramework.Entities;
-using Bakeryshop.Domain.Dtos;
-using Bakeryshop.Domain.IRepositories;
+using BakeryAdmin.Domain.Dtos;
+using BakeryAdmin.Domain.IRepositories;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace Bakeryshop.Infrastructure.Repositories
+namespace BakeryAdmin.Infrastructure.Repositories
 {
     public class TypeBreadRepository : ITypeBreadRepository
     {
@@ -19,10 +21,10 @@ namespace Bakeryshop.Infrastructure.Repositories
             
         public List<TypeBreadDto> GetAll()
         {
-            return _mapper.Map<List<TypeBreadDto>>( _dbContext.bksTypeBreads.ToList());
+            return _mapper.Map<List<TypeBreadDto>>(_dbContext.bksTypeBreads.ToList());
         }
 
-        public TypeBreadDto Save(TypeBreadDto objDto)
+        public TypeBreadDto? Save(TypeBreadDto objDto)
         {
             var typeBread = _mapper.Map<bksTypeBread>(objDto);
             if (typeBread.Id == 0)
@@ -36,9 +38,7 @@ namespace Bakeryshop.Infrastructure.Repositories
             
             _dbContext.SaveChanges();
 
-            return _mapper.Map<TypeBreadDto>(
-                _dbContext.bksTypeBreads
-                .Where(a=> a.Id == typeBread.Id));
+            return _mapper.Map<TypeBreadDto?>(_dbContext.bksTypeBreads.Where(a=> a.Id == typeBread.Id).FirstOrDefault());
         }
 
         public void Delete(long id)

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bakeryshop.Domain\Bakeryshop.Domain.csproj" />
+    <ProjectReference Include="..\BakeryAdmin.Domain\BakeryAdmin.Domain.csproj" />
     <ProjectReference Include="..\Bakeryshop.Infrastructure.EntityFramework\Bakeryshop.Infrastructure.EntityFramework.csproj" />
   </ItemGroup>
 
