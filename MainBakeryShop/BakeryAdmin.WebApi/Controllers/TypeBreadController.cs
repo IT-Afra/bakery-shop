@@ -1,17 +1,16 @@
-﻿using Bakeryshop.Infrastructure.Repositories;
-using Bakeryshop.Domain.Dtos;
-using Bakeryshop.Domain.IRepositories;
+﻿using BakeryAdmin.Infrastructure.Repositories;
+using BakeryAdmin.Domain.Dtos;
+using BakeryAdmin.Domain.IRepositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bakershop.WebApi.Controllers
+namespace BakeryAdmin.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class TypeBreadController : ControllerBase
     {
         private readonly ITypeBreadRepository _typeBreadRepository;
-
         public TypeBreadController(ITypeBreadRepository typeBreadRepository)
         {
             _typeBreadRepository = typeBreadRepository;

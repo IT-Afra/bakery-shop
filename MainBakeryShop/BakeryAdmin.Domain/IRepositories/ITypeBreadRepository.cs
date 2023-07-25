@@ -1,13 +1,11 @@
-﻿
+﻿using BakeryAdmin.Domain.Dtos;
 
-using Bakeryshop.Domain.Dtos;
-
-namespace Bakeryshop.Domain.IRepositories
+namespace BakeryAdmin.Domain.IRepositories
 {
     public interface ITypeBreadRepository
     {
         public List<TypeBreadDto> GetAll();
-        public TypeBreadDto Save(TypeBreadDto objDto);
+        public TypeBreadDto? Save(TypeBreadDto objDto);
         public void Delete(long id);
 
     }

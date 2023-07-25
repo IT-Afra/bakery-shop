@@ -19,23 +19,24 @@ namespace Bakeryshop.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("{UserId:long}")]
-        public ActionResult<List<OrderDto>> Get(long UserId)
+        [Route("{userId:long}")]
+        public ActionResult<List<OrderDto>> Get(long userId)
         {
-            return Ok(_orderRepository.GetAll(UserId));
+            return Ok(_orderRepository.GetAll(userId));
         }
 
         [HttpPost]
-        public ActionResult<OrderDto> Save([FromBody] long UserId, [FromBody] OrderDto objDto)
+        [Route("{userId:long}")]
+        public ActionResult<OrderDto> Save(long userId, OrderDto objDto)
         {
-            return Ok(_orderRepository.Save(UserId, objDto));
+            return Ok(_orderRepository.Save(userId, objDto));
         }
 
         [HttpDelete]
-        [Route("{UserId:long}/{id:long}")]
-        public IActionResult Delete( long UserId, long id)
+        [Route("{userId:long}/{id:long}")]
+        public IActionResult Delete( long userId, long id)
         {
-            _orderRepository.Delete(UserId, id);
+            _orderRepository.Delete(userId, id);
             return Ok();
         }
     }
