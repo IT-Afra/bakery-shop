@@ -19,6 +19,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework
         public virtual DbSet<bksSchadule> bksSchadules { get; set; } = null!;
         public virtual DbSet<bksSchaduleDetail> bksSchaduleDetails { get; set; } = null!;
         public virtual DbSet<bksTypeBread> bksTypeBreads { get; set; } = null!;
+        public virtual DbSet<bksPerson> bksPersons { get; set; } = null!;
         public virtual DbSet<gtUser> gtUsers { get; set; } = null!;
 
 
@@ -29,6 +30,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework
             modelBuilder.ApplyConfiguration(new bksSchaduleConfiguration());
             modelBuilder.ApplyConfiguration(new bksSchaduleDetailConfiguration());
             modelBuilder.ApplyConfiguration(new bksTypeBreadConfiguration());
+            modelBuilder.ApplyConfiguration(new bksPersonConfiguration());
             modelBuilder.ApplyConfiguration(new gtUserConfiguration());
         }
 
