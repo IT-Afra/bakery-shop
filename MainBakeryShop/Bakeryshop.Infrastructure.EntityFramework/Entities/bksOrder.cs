@@ -25,7 +25,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
         public long? ModifierDate { get; set; }
 
         public virtual bksSchadule Schadule { get; set; } = null!;
-        public virtual gtUser User { get; set; } = null!;
+        public virtual bksPerson User { get; set; } = null!;
         public virtual ICollection<bksOrderDetail> OrderDetails { get; set; }
     }
 }

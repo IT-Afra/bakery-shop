@@ -3,13 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ConfigProvider } from 'antd';
+import faIR from 'antd/locale/fa_IR';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ConfigProvider locale={faIR} direction='rtl' componentSize='small' theme={{
+      token: {
+        colorPrimary: '#00b96b',
+      },
+    }} >
+      <App />
+    </ConfigProvider>
   </React.StrictMode>
 );
 

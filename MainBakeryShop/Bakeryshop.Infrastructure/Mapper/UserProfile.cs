@@ -9,9 +9,9 @@ namespace Bakeryshop.Infrastructure.Mapper
     {
         public UserProfile()
      {
-            CreateMap<gtUser, UserDto>();
+            CreateMap<bksPerson, UserDto>();
 
-            CreateMap<UserDto, gtUser>();
+            CreateMap<UserDto, bksPerson>();
         }
     }
 }
