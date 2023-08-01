@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[bksOrder] (
     [Id]                BIGINT        NOT NULL,
-    [UserId]            BIGINT        NOT NULL,
+    [PersonId]          BIGINT        NOT NULL,
     [SchaduleId]        BIGINT        NOT NULL,
     [RegisterDateTime]  NVARCHAR (21) NOT NULL,
     [RegisterDateTimeL] BIGINT        NOT NULL,
@@ -10,7 +10,9 @@
     [ModifierUser]      BIGINT        NULL,
     [ModifierDate]      BIGINT        NULL,
     CONSTRAINT [PK_bksOrder] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_bksOrder_bksSchadule] FOREIGN KEY ([SchaduleId]) REFERENCES [dbo].[bksSchadule] ([Id]),
-    CONSTRAINT [FK_bksOrder_gtUser] FOREIGN KEY ([UserId]) REFERENCES [dbo].[gtUser] ([Id])
+    CONSTRAINT [FK_bksOrder_bksPerson] FOREIGN KEY ([PersonId]) REFERENCES [dbo].[bksPerson] ([Id]),
+    CONSTRAINT [FK_bksOrder_bksSchadule] FOREIGN KEY ([SchaduleId]) REFERENCES [dbo].[bksSchadule] ([Id])
 );
+
+
 

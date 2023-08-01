@@ -66,5 +66,6 @@
     <Build Include="dbo\Tables\bksSchadule.sql" />
     <Build Include="dbo\Tables\bksOrderDetail.sql" />
     <Build Include="dbo\Tables\bksOrder.sql" />
+    <Build Include="dbo\Tables\bksPerson.sql" />
   </ItemGroup>
 </Project>
