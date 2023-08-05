@@ -11,9 +11,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ConfigProvider locale={faIR} direction='rtl' componentSize='small' theme={{
+    <ConfigProvider locale={faIR} direction='rtl' componentSize='middle' theme={{
       token: {
-        colorPrimary: '#00b96b',
+        colorPrimary: '#8b008b',
+        fontFamily: 'Vazirmatn'
       },
     }} >
       <App />

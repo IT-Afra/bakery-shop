@@ -10,18 +10,15 @@ import MainLayout from './pages/MainLayout';
 function App() {
   return (
     <HashRouter>
-       <Routes>
-
+      <Routes>
         <Route path="login" element={<AuthenticateLayout />} >
           <Route path="*" element={<LoginPage />} />
         </Route>
-
         <Route path="*" element={<MainLayout />} >
-          <Route path="home" element={<HomePage />} /> 
-          <Route path="typebread" element={<TypeBreadPage />} /> 
+          <Route path="home" element={<HomePage />} />
+          <Route path="typebread" element={<TypeBreadPage />} />
           <Route path='*' element={<Navigate to="/home" replace />} />
         </Route>
-
       </Routes>
     </HashRouter>
   );
