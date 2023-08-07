@@ -1,10 +1,9 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-
+import { BrightnessHigh, Moon } from 'react-bootstrap-icons'
 import { UploadOutlined, UserOutlined, VideoCameraOutlined, DownOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Col, Layout, Menu, Row, Space, Switch, theme, Image, Dropdown, Button, MenuProps } from 'antd';
 import "./../assets/images/Logo.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -63,8 +62,8 @@ const MainLayout = ({ setThemeLayout }: Props) => {
                 <Space direction="horizontal">
                   <Space direction="horizontal" align='center' style={{paddingLeft:'10px'}} >
                     <Switch
-                      checkedChildren={<FontAwesomeIcon icon={"sun"} style={{ color: "yellow" }} />}
-                      unCheckedChildren={<FontAwesomeIcon icon={"moon"} style={{ color: "darkblue" }} />}
+                      checkedChildren={<BrightnessHigh color='yellow' />}
+                      unCheckedChildren={<Moon color='darkblue' />}
                       defaultChecked
                     />
                   </Space>
