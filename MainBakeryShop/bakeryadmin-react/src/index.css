@@ -85,3 +85,10 @@ body {
   font-style: normal;
   font-display: swap;
 }
+
+.ant-switch.ant-switch-checked {
+  background: hsl(29, 100%, 48%);}
+
+  .ant-switch.ant-switch-checked:hover{
+    background-color: orangered;
+  }

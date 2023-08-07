@@ -1,9 +1,10 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { BrightnessHigh, Moon } from 'react-bootstrap-icons'
+import { BrightnessHigh, BrightnessHighFill, Moon, MoonFill } from 'react-bootstrap-icons'
 import { UploadOutlined, UserOutlined, VideoCameraOutlined, DownOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Col, Layout, Menu, Row, Space, Switch, theme, Image, Dropdown, Button, MenuProps } from 'antd';
 import "./../assets/images/Logo.png";
+import { hover } from '@testing-library/user-event/dist/hover';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -61,9 +62,9 @@ const MainLayout = ({ setThemeLayout }: Props) => {
               <Row style={{ float: "left" }} >
                 <Space direction="horizontal">
                   <Space direction="horizontal" align='center' style={{paddingLeft:'10px'}} >
-                    <Switch
-                      checkedChildren={<BrightnessHigh color='yellow' />}
-                      unCheckedChildren={<Moon color='darkblue' />}
+                    <Switch 
+                      checkedChildren={<BrightnessHighFill color='yellow' size={17} style={{verticalAlign:'middle' , display:'inline'}} />}
+                      unCheckedChildren={<MoonFill color='yellow' size={17} style={{verticalAlign:'middle' , display:'inline'}} />}
                       defaultChecked
                     />
                   </Space>
