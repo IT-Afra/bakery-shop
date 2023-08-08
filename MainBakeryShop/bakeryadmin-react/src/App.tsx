@@ -22,7 +22,7 @@ function App() {
     <ConfigProvider locale={faIR} direction='rtl' componentSize='middle' theme={{
       algorithm: isDarkMode ? darkAlgorithm : defaultAlgorithm,
       token: {
-        colorPrimary: '#8b008b',
+        colorPrimary: '#F77E21',
         fontFamily: 'Vazirmatn',
 
       },
