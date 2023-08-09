@@ -1,5 +1,5 @@
 import React from 'react'
-import { Spin, Row, Col, Table, Grid, Button, Radio, Form, Modal, InputNumber, Input } from 'antd'
+import { Spin, Row, Col, Table, Grid, Button, Radio, Form, Modal, InputNumber, Input, Popconfirm } from 'antd'
 import { ITypeBread } from '../../models/ITypeBread'
 import type { ColumnsType } from 'antd/es/table';
 import { EditFilled, DeleteFilled, UserAddOutlined } from "@ant-design/icons";
@@ -18,6 +18,7 @@ const TypeBreadPage = (props: Props) => {
   const [typeBreadchange, setTypeBreadchange] = React.useState(false)
   const [isSpinning, setIsSpinning] = React.useState(true)
   const [typeBreads, setTypeBreads] = React.useState<ITypeBread[]>([])
+  const [typeBreadTable, setTypeBreadTable] = React.useState<ITypeBreadTable[]>([])
   const screens = useBreakpoint();
   const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([]);
   const [selectedRowID, setSelectedRowID] = React.useState<React.Key[]>([0]);
@@ -25,7 +26,9 @@ const TypeBreadPage = (props: Props) => {
   const getTypeBreads = () => {
     axios.get<ITypeBread[]>('https://localhost:7239/api/typeBread')
       .then(function (response) {
-        setTypeBreads(response.data)
+        setTypeBreadTable(response.data.map((x) => {
+          return ({ key: x.id, ...x })
+        }))
       })
       .catch(function (error) {
         // handle error
@@ -72,7 +75,6 @@ const TypeBreadPage = (props: Props) => {
         console.log(error);
       })
       .finally(() => {
-        setTypeBreadchange(true)
         setIsSpinning(false)
         setTypeBreadchange(true)
       });
@@ -80,9 +82,9 @@ const TypeBreadPage = (props: Props) => {
 
   const onEdit = (id: React.Key) => {
     console.log(id)
-    const typebread = typeBreads.find(p => p.id === id)
-    if (typebread) {
-      frm.setFieldsValue(typebread)
+    const typeBread = typeBreadTable.find(p => p.id === id)
+    if (typeBread) {
+      frm.setFieldsValue(typeBread)
       setModalOpen(true)
     }
   }
@@ -91,16 +93,21 @@ const TypeBreadPage = (props: Props) => {
 
   const Delete = () => {
     selectedRowID.map((x) => {
+      console.log(x);
       axios.delete(`https://localhost:7239/api/typeBread/${x}`)
         .then(response => {
-          console.log(`Deleted post with ID ${x}`);
+          setIsSpinning(true)
+          setTypeBreadchange(true)
         })
         .catch(error => {
           console.error(error);
+        })
+        .finally(() => {
+          setIsSpinning(false)
+          setTypeBreadchange(true)
         });
+        
     })
-
-
   }
 
 
@@ -121,10 +128,6 @@ const TypeBreadPage = (props: Props) => {
     frm.resetFields()
     setModalOpen(true)
   }
-
-  const tableData:ITypeBreadTable[] = typeBreads.map((x)=>{
-    return({key:x.id,...x})
-  });
 
   const columnsMobile: ColumnsType<ITypeBread> = [
     {
@@ -194,11 +197,19 @@ const TypeBreadPage = (props: Props) => {
         </Col>
       </Row>
       <Button style={{ float: "left", width: "60px", background: "rgb(255, 178, 0)", display: "inline" }} icon={<UserAddOutlined />} onClick={() => newUser()} />
-      <Table rowSelection={rowSelection} columns={screens.xs ? columnsMobile : columns} dataSource={tableData} />
-      <Button icon={<DeleteFilled />} style={{ background: "#c71e1e", width: "60px", color: "white" }} onClick={() => Delete} />
+      <Table rowSelection={rowSelection} columns={screens.xs ? columnsMobile : columns} dataSource={typeBreadTable} />
+      <Popconfirm
+        title="حذف سطر"
+        description="آیا اطمینان به حذف موارد فوق دارید؟"
+        onConfirm={() => Delete()}
+        okText="بله"
+        cancelText="خیر"
+      >
+        <Button icon={<DeleteFilled />} style={{ background: "#c71e1e", width: "60px", color: "white" }} />
+      </Popconfirm>
       <Modal title='ویرایش اطلاعات نان' open={modalOpen} onCancel={() => setModalOpen(false)} onOk={() => onSave()} >
         <Form form={frm} >
-          <Form.Item name="id" label="ID" hidden>
+          <Form.Item name="id" label="شناسه" hidden>
           </Form.Item>
           <Form.Item name="name" label="نام" rules={[{ required: true }, { type: 'string', max: 100 }]} labelCol={{ span: 5 }} wrapperCol={{ span: 19 }}>
             <Input placeholder='لطفا نام نان را وارد فرمایید  :' />
