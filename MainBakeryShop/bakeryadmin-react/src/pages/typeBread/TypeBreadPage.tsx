@@ -4,7 +4,7 @@ import { ITypeBread } from '../../models/ITypeBread'
 import type { ColumnsType } from 'antd/es/table';
 import { EditFilled, DeleteFilled, UserAddOutlined } from "@ant-design/icons";
 import axios from 'axios'
-import { Display } from 'react-bootstrap-icons';
+import { ITypeBreadTable } from '../../models/ITypeBreadTable';
 
 
 
@@ -15,6 +15,7 @@ type Props = {}
 const TypeBreadPage = (props: Props) => {
   const [frm] = Form.useForm<ITypeBread>()
   const [modalOpen, setModalOpen] = React.useState(false)
+  const [typeBreadchange, setTypeBreadchange] = React.useState(false)
   const [isSpinning, setIsSpinning] = React.useState(true)
   const [typeBreads, setTypeBreads] = React.useState<ITypeBread[]>([])
   const screens = useBreakpoint();
@@ -37,7 +38,7 @@ const TypeBreadPage = (props: Props) => {
 
   React.useEffect(() => {
     getTypeBreads();
-  }, [typeBreads]);
+  }, [typeBreadchange]);
 
 
 
@@ -47,7 +48,10 @@ const TypeBreadPage = (props: Props) => {
     frm.validateFields()
       .then(save)
       .catch()
-      .finally(() => setIsSpinning(false))
+      .finally(() => {
+        setModalOpen(false)
+        setTypeBreadchange(false)
+      })
 
   }
 
@@ -55,9 +59,9 @@ const TypeBreadPage = (props: Props) => {
     axios.post<ITypeBread>("https://localhost:7239/api/typeBread", {
       id: typeBread.id,
       name: typeBread.name,
-      isActive: typeBread.isActive,
-      photoGuid: typeBread.photoGuid
-    })
+      photoGuid: typeBread.photoGuid,
+      isActive: typeBread.isActive
+    },)
       .then((response) => {
         setIsSpinning(true);
         let data: ITypeBread[] = [response.data, ...typeBreads];
@@ -68,7 +72,9 @@ const TypeBreadPage = (props: Props) => {
         console.log(error);
       })
       .finally(() => {
+        setTypeBreadchange(true)
         setIsSpinning(false)
+        setTypeBreadchange(true)
       });
   }
 
@@ -83,15 +89,15 @@ const TypeBreadPage = (props: Props) => {
 
 
 
-  const Delete = (id: number) => {
+  const Delete = () => {
     selectedRowID.map((x) => {
       axios.delete(`https://localhost:7239/api/typeBread/${x}`)
-      .then(response => {
-        console.log(`Deleted post with ID ${x}`);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+        .then(response => {
+          console.log(`Deleted post with ID ${x}`);
+        })
+        .catch(error => {
+          console.error(error);
+        });
     })
 
 
@@ -114,10 +120,11 @@ const TypeBreadPage = (props: Props) => {
   const newUser = () => {
     frm.resetFields()
     setModalOpen(true)
-
-
   }
 
+  const tableData:ITypeBreadTable[] = typeBreads.map((x)=>{
+    return({key:x.id,...x})
+  });
 
   const columnsMobile: ColumnsType<ITypeBread> = [
     {
@@ -183,39 +190,34 @@ const TypeBreadPage = (props: Props) => {
     <Spin spinning={isSpinning}>
       <Row>
         <Col span={5}>
-          <h1 style={{fontWeight:"bold" , display:"flex"}}>انواع نان </h1>
+          <h1 style={{ fontWeight: "bold", display: "flex" }}>انواع نان </h1>
         </Col>
       </Row>
       <Button style={{ float: "left", width: "60px", background: "rgb(255, 178, 0)", display: "inline" }} icon={<UserAddOutlined />} onClick={() => newUser()} />
-      <Table rowSelection={rowSelection} columns={screens.xs ? columnsMobile : columns} dataSource={typeBreads} />
+      <Table rowSelection={rowSelection} columns={screens.xs ? columnsMobile : columns} dataSource={tableData} />
       <Button icon={<DeleteFilled />} style={{ background: "#c71e1e", width: "60px", color: "white" }} onClick={() => Delete} />
       <Modal title='ویرایش اطلاعات نان' open={modalOpen} onCancel={() => setModalOpen(false)} onOk={() => onSave()} >
-        <Form  form={frm} >
+        <Form form={frm} >
           <Form.Item name="id" label="ID" hidden>
           </Form.Item>
           <Form.Item name="name" label="نام" rules={[{ required: true }, { type: 'string', max: 100 }]} labelCol={{ span: 5 }} wrapperCol={{ span: 19 }}>
             <Input placeholder='لطفا نام نان را وارد فرمایید  :' />
           </Form.Item>
           <Form.Item name="photoGuid" label="عکس " rules={[{ required: true }, { type: 'string', max: 50 }]} labelCol={{ span: 5 }} wrapperCol={{ span: 19 }}>
-            <Input  placeholder='لطفا عکس نان را وارد فرمایید  :' />
+            <Input placeholder='لطفا عکس نان را وارد فرمایید  :' />
           </Form.Item>
-
           <Row>
             <Col span={12}>
               <Form.Item name="isActive" label="وضعیت" rules={[{ required: true }]} labelCol={{ span: 11 }} wrapperCol={{ span: 13 }}>
                 <Radio.Group >
-                  <Radio value={'true'}>موجود</Radio>
-                  <Radio value={'false'}>ناموجود</Radio>
+                  <Radio value={true}>موجود</Radio>
+                  <Radio value={false}>ناموجود</Radio>
                 </Radio.Group>
               </Form.Item>
             </Col>
           </Row>
-
         </Form>
-
       </Modal>
-
-
     </Spin>
   )
 }
