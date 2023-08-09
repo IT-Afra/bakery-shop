@@ -1,18 +1,19 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { BrightnessHigh, BrightnessHighFill, Moon, MoonFill } from 'react-bootstrap-icons'
+import { BrightnessHighFill, MoonFill } from 'react-bootstrap-icons'
 import { UploadOutlined, UserOutlined, VideoCameraOutlined, DownOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Col, Layout, Menu, Row, Space, Switch, theme, Image, Dropdown, Button, MenuProps } from 'antd';
 import "./../assets/images/Logo.png";
-import { hover } from '@testing-library/user-event/dist/hover';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 type Props = {
-  setThemeLayout(isDark: boolean): void
+  setThemeLayout(isDark: boolean): void,
+  isDarkMode : boolean
 }
 
-const MainLayout = ({ setThemeLayout }: Props) => {
+const MainLayout = ({ setThemeLayout , isDarkMode }: Props) => {
+
   const
     {
       token: { colorBgContainer },
@@ -40,11 +41,18 @@ const MainLayout = ({ setThemeLayout }: Props) => {
     onClick: handleMenuClick,
   };
 
-
+  const changeMode = () => {
+    if(isDarkMode){
+      setThemeLayout(false);
+    }
+    else{
+      setThemeLayout(true);
+    }
+  }
   return (
     <>
       <Layout style={{ height: "100vh" }}>
-        <Header style={{ backgroundColor: "white" }}>
+        <Header style={{ backgroundColor: isDarkMode? "rgb(20, 20, 20)":"white" }}>
           <Row>
             <Col span={12} >
               <Row>
@@ -61,10 +69,11 @@ const MainLayout = ({ setThemeLayout }: Props) => {
             <Col span={12}>
               <Row style={{ float: "left" }} >
                 <Space direction="horizontal">
-                  <Space direction="horizontal" align='center' style={{paddingLeft:'10px'}} >
-                    <Switch 
-                      checkedChildren={<BrightnessHighFill color='yellow' size={17} style={{verticalAlign:'middle' , display:'inline'}} />}
-                      unCheckedChildren={<MoonFill color='yellow' size={17} style={{verticalAlign:'middle' , display:'inline'}} />}
+                  <Space direction="horizontal" align='center' style={{ paddingLeft: '10px' }} >
+                    <Switch
+                      onClick={() => changeMode()}
+                      checkedChildren={<BrightnessHighFill color='yellow' size={17} style={{ verticalAlign: 'middle', display: 'inline' }} />}
+                      unCheckedChildren={<MoonFill color='yellow' size={17} style={{ verticalAlign: 'middle', display: 'inline' }} />}
                       defaultChecked
                     />
                   </Space>
@@ -91,7 +100,7 @@ const MainLayout = ({ setThemeLayout }: Props) => {
           <Sider
             breakpoint="lg"
             collapsedWidth="0"
-            color='white'
+            style={{ backgroundColor: isDarkMode? "rgb(20, 20, 20)":"white" }}
           >
             <Menu
               // theme='light'
@@ -112,7 +121,7 @@ const MainLayout = ({ setThemeLayout }: Props) => {
                 <Outlet />
               </div>
             </Content>
-            <Footer style={{ textAlign: 'center' }}>ABA Design ©2023 Created by ABA's BOSS</Footer>
+            <Footer style={{ textAlign: 'center' }}>پنل فروشگاه نان نمامی حقوق محفوظ است.</Footer>
           </Layout>
         </Layout>
       </Layout>

@@ -32,7 +32,7 @@ function App() {
           <Route path="login" element={<AuthenticateLayout />} >
             <Route path="*" element={<LoginPage />} />
           </Route>
-          <Route path="*" element={<MainLayout setThemeLayout={setThemeLayout} />} >
+          <Route path="*" element={<MainLayout isDarkMode={isDarkMode} setThemeLayout={setThemeLayout} />} >
             <Route path="home" element={<HomePage />} />
             <Route path="typebread" element={<TypeBreadPage />} />
             <Route path='*' element={<Navigate to="/home" replace />} />
