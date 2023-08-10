@@ -1,6 +1,7 @@
 {
   "name": "bakeryadmin-react",
   "version": "0.1.0",
+  "proxy": "https://localhost:7239",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.2.5",
@@ -14,6 +15,7 @@
     "antd": "^5.7.2",
     "axios": "^1.4.0",
     "jest-editor-support": "^31.1.0",
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-bootstrap-icons": "^1.10.3",
     "react-dom": "^18.2.0",
@@ -46,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "^3.0.1"
   }
 }

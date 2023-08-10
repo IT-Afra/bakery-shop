@@ -12,6 +12,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Entities
         public string Name { get; set; } = null!;
         public string UserName { get; set; } = null!;
         public string Password { get; set; } = null!;
+        public string RoleName { get; set; } = null!;
         public bool IsActive { get; set; }
         public long? ModifierUser { get; set; }
         public long? ModifierDate { get; set; }

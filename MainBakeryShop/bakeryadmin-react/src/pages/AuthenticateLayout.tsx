@@ -1,17 +1,16 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
-type Props = {}
+type Props = {};
 
 const AuthenticateLayout = (props: Props) => {
   return (
     <div>
-        <h1>This is AuthenticateLayout</h1>
+      <h1>This is AuthenticateLayout</h1>
 
-        <Outlet />
-
+      <Outlet />
     </div>
-  )
-}
+  );
+};
 
-export default AuthenticateLayout
+export default AuthenticateLayout;
