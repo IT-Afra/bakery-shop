@@ -18,6 +18,9 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddAutoMapper(typeof(TypeBreadProfile));
             services.AddScoped<ITypeBreadRepository, TypeBreadRepository>();
 
+
+            services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
+
             return services;
         }
     }

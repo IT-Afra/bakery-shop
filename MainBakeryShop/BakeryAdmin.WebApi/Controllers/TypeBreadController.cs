@@ -3,9 +3,11 @@ using BakeryAdmin.Domain.Dtos;
 using BakeryAdmin.Domain.IRepositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BakeryAdmin.WebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TypeBreadController : ControllerBase
@@ -23,6 +25,7 @@ namespace BakeryAdmin.WebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult<List<TypeBreadDto>> Save([FromBody]TypeBreadDto objDto)
         {
             return Ok(_typeBreadRepository.Save(objDto));

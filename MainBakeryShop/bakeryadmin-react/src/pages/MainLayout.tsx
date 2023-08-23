@@ -1,23 +1,46 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import { BrightnessHighFill, MoonFill } from 'react-bootstrap-icons'
-import { UploadOutlined, UserOutlined, VideoCameraOutlined, DownOutlined, LogoutOutlined } from '@ant-design/icons';
-import { Col, Layout, Menu, Row, Space, Switch, theme, Image, Dropdown, Button, MenuProps } from 'antd';
-import "./../assets/images/Logo.png";
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import { BrightnessHighFill, MoonFill } from 'react-bootstrap-icons';
+import {
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+  DownOutlined,
+  LogoutOutlined,
+} from '@ant-design/icons';
+import {
+  Col,
+  Layout,
+  Menu,
+  Row,
+  Space,
+  Switch,
+  theme,
+  Image,
+  Dropdown,
+  Button,
+  MenuProps,
+} from 'antd';
+import 'assets/images/Logo.png';
+import jwt_decode from 'jwt-decode';
+import { IUserToken } from 'models/IUserToken';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 type Props = {
-  setThemeLayout(isDark: boolean): void,
-  isDarkMode : boolean
-}
+  setThemeLayout(isDark: boolean): void;
+  isDarkMode: boolean;
+};
 
-const MainLayout = ({ setThemeLayout , isDarkMode }: Props) => {
+const MainLayout = ({ setThemeLayout, isDarkMode }: Props) => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
 
-  const
-    {
-      token: { colorBgContainer },
-    } = theme.useToken();
+  const accessToken = localStorage.getItem('access-token');
+  console.log(accessToken);
+  console.log(jwt_decode(accessToken!));
+  const userToken = jwt_decode<IUserToken>(accessToken!);
 
   const items: MenuProps['items'] = [
     {
@@ -29,7 +52,7 @@ const MainLayout = ({ setThemeLayout , isDarkMode }: Props) => {
       label: 'خروج از حساب کاربری',
       key: '2',
       icon: <LogoutOutlined />,
-    }
+    },
   ];
 
   const handleMenuClick: MenuProps['onClick'] = (e) => {
@@ -42,47 +65,58 @@ const MainLayout = ({ setThemeLayout , isDarkMode }: Props) => {
   };
 
   const changeMode = () => {
-    if(isDarkMode){
+    if (isDarkMode) {
       setThemeLayout(false);
-    }
-    else{
+    } else {
       setThemeLayout(true);
     }
-  }
+  };
   return (
     <>
-      <Layout style={{ height: "100vh" }}>
-        <Header style={{ backgroundColor: isDarkMode? "rgb(20, 20, 20)":"white" }}>
+      <Layout style={{ height: '100vh' }}>
+        <Header style={{ backgroundColor: isDarkMode ? 'rgb(20, 20, 20)' : 'white' }}>
           <Row>
-            <Col span={12} >
+            <Col span={12}>
               <Row>
-                <Space style={{ lineHeight: "1.25" }}>
-                  <Space direction="horizontal" align='center' >
+                <Space style={{ lineHeight: '1.25' }}>
+                  <Space direction="horizontal" align="center">
                     <h2>پنل ادمین فروشگاه نان</h2>
                   </Space>
-                  <Space direction="horizontal" align='center' >
-                    <Image preview={false} src='Logo.png' alt='logo' width={30} height={30} />
+                  <Space direction="horizontal" align="center">
+                    <Image preview={false} src="Logo.png" alt="logo" width={30} height={30} />
                   </Space>
                 </Space>
               </Row>
             </Col>
             <Col span={12}>
-              <Row style={{ float: "left" }} >
+              <Row style={{ float: 'left' }}>
                 <Space direction="horizontal">
-                  <Space direction="horizontal" align='center' style={{ paddingLeft: '10px' }} >
+                  <Space direction="horizontal" align="center" style={{ paddingLeft: '10px' }}>
                     <Switch
                       onClick={() => changeMode()}
-                      checkedChildren={<BrightnessHighFill color='yellow' size={17} style={{ verticalAlign: 'middle', display: 'inline' }} />}
-                      unCheckedChildren={<MoonFill color='yellow' size={17} style={{ verticalAlign: 'middle', display: 'inline' }} />}
+                      checkedChildren={
+                        <BrightnessHighFill
+                          color="yellow"
+                          size={17}
+                          style={{ verticalAlign: 'middle', display: 'inline' }}
+                        />
+                      }
+                      unCheckedChildren={
+                        <MoonFill
+                          color="yellow"
+                          size={17}
+                          style={{ verticalAlign: 'middle', display: 'inline' }}
+                        />
+                      }
                       defaultChecked
                     />
                   </Space>
                 </Space>
-                <Space direction="horizontal" align='center' >
-                  <Dropdown menu={menuProps} >
+                <Space direction="horizontal" align="center">
+                  <Dropdown menu={menuProps}>
                     <Button>
                       <Space>
-                        ادمین
+                        {userToken.name}
                         <DownOutlined />
                       </Space>
                     </Button>
@@ -100,7 +134,7 @@ const MainLayout = ({ setThemeLayout , isDarkMode }: Props) => {
           <Sider
             breakpoint="lg"
             collapsedWidth="0"
-            style={{ backgroundColor: isDarkMode? "rgb(20, 20, 20)":"white" }}
+            style={{ backgroundColor: isDarkMode ? 'rgb(20, 20, 20)' : 'white' }}
           >
             <Menu
               // theme='light'
@@ -111,7 +145,7 @@ const MainLayout = ({ setThemeLayout , isDarkMode }: Props) => {
                   key: String(index + 1),
                   icon: React.createElement(icon),
                   label: `nav ${index + 1}`,
-                }),
+                })
               )}
             />
           </Sider>
@@ -125,9 +159,8 @@ const MainLayout = ({ setThemeLayout , isDarkMode }: Props) => {
           </Layout>
         </Layout>
       </Layout>
-
     </>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;

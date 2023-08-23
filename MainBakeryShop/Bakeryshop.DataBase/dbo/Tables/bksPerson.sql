@@ -22,7 +22,8 @@
     [IsActive]             BIT            NOT NULL,
     [ModifierUser]         BIGINT         NULL,
     [ModifierDate]         BIGINT         NULL,
-    CONSTRAINT [PK_bksPerson] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_bksPerson_bksPerson] FOREIGN KEY ([Id]) REFERENCES [dbo].[bksPerson] ([Id])
+    CONSTRAINT [PK_bksPerson] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
 

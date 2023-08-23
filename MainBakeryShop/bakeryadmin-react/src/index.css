@@ -7,7 +7,8 @@ body {
 
 @font-face {
   font-family: Vazirmatn;
-  src: url('./assets/fonts/webfonts/Vazirmatn-Thin.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/webfonts/Vazirmatn-Thin.woff2') format('woff2'),
     url('./assets/fonts/ttf/Vazirmatn-Thin.ttf') format('ttf');
   font-weight: 100;
   font-style: normal;
@@ -16,7 +17,8 @@ body {
 
 @font-face {
   font-family: Vazirmatn;
-  src: url('./assets/fonts/webfonts/Vazirmatn-ExtraLight.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/webfonts/Vazirmatn-ExtraLight.woff2') format('woff2'),
     url('./assets/fonts/ttf/Vazirmatn-ExtraLight.ttf') format('ttf');
   font-weight: 200;
   font-style: normal;
@@ -25,7 +27,8 @@ body {
 
 @font-face {
   font-family: Vazirmatn;
-  src: url('./assets/fonts/webfonts/Vazirmatn-Light.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/webfonts/Vazirmatn-Light.woff2') format('woff2'),
     url('./assets/fonts/ttf/Vazirmatn-Light.ttf') format('ttf');
   font-weight: 300;
   font-style: normal;
@@ -34,7 +37,8 @@ body {
 
 @font-face {
   font-family: Vazirmatn;
-  src: url('./assets/fonts/webfonts/Vazirmatn-Regular.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/webfonts/Vazirmatn-Regular.woff2') format('woff2'),
     url('./assets/fonts/ttf/Vazirmatn-Regular.ttf') format('ttf');
   font-weight: 400;
   font-style: normal;
@@ -43,7 +47,8 @@ body {
 
 @font-face {
   font-family: Vazirmatn;
-  src: url('./assets/fonts/webfonts/Vazirmatn-Medium.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/webfonts/Vazirmatn-Medium.woff2') format('woff2'),
     url('./assets/fonts/ttf/Vazirmatn-Medium.ttf') format('ttf');
   font-weight: 500;
   font-style: normal;
@@ -52,7 +57,8 @@ body {
 
 @font-face {
   font-family: Vazirmatn;
-  src: url('./assets/fonts/webfonts/Vazirmatn-SemiBold.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/webfonts/Vazirmatn-SemiBold.woff2') format('woff2'),
     url('./assets/fonts/ttf/Vazirmatn-SemiBold.ttf') format('ttf');
   font-weight: 600;
   font-style: normal;
@@ -61,7 +67,8 @@ body {
 
 @font-face {
   font-family: Vazirmatn;
-  src: url('./assets/fonts/webfonts/Vazirmatn-Bold.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/webfonts/Vazirmatn-Bold.woff2') format('woff2'),
     url('./assets/fonts/ttf/Vazirmatn-Bold.ttf') format('ttf');
   font-weight: 700;
   font-style: normal;
@@ -70,7 +77,8 @@ body {
 
 @font-face {
   font-family: Vazirmatn;
-  src: url('./assets/fonts/webfonts/Vazirmatn-ExtraBold.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/webfonts/Vazirmatn-ExtraBold.woff2') format('woff2'),
     url('./assets/fonts/ttf/Vazirmatn-ExtraBold.ttf') format('ttf');
   font-weight: 800;
   font-style: normal;
@@ -79,7 +87,8 @@ body {
 
 @font-face {
   font-family: Vazirmatn;
-  src: url('./assets/fonts/webfonts/Vazirmatn-Black.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/webfonts/Vazirmatn-Black.woff2') format('woff2'),
     url('./assets/fonts/ttf/Vazirmatn-Black.ttf') format('ttf');
   font-weight: 900;
   font-style: normal;
@@ -87,8 +96,9 @@ body {
 }
 
 .ant-switch.ant-switch-checked {
-  background: #F77E21;}
+  background: #f77e21;
+}
 
-  .ant-switch.ant-switch-checked:hover{
-    background-color: orangered;
-  }
+.ant-switch.ant-switch-checked:hover {
+  background-color: orangered;
+}

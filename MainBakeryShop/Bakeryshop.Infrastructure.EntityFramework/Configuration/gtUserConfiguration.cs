@@ -13,6 +13,7 @@ namespace Bakeryshop.Infrastructure.EntityFramework.Configuration
             builder.Property(s => s.Name).HasMaxLength(100);
             builder.Property(s => s.UserName).HasMaxLength(100);
             builder.Property(s => s.Password).HasMaxLength(256);
+            builder.Property(s => s.RoleName).HasMaxLength(50);
             builder.Property(s => s.IsActive);
         }
     }
