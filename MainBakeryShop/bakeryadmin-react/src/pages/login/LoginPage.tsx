@@ -4,11 +4,15 @@ import { ILogin } from 'models/ILogin';
 import axios from 'axios';
 import { IAuthResult } from 'models/IAuthResult';
 import { useNavigate } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
+import { IUserToken } from 'models/IUserToken';
+import { AuthContext } from 'contexts/AuthContext';
 
 type Props = {};
 
 const LoginPage = (props: Props) => {
   const [form] = Form.useForm<ILogin>();
+  const authContext = React.useContext(AuthContext);
   const navigate = useNavigate();
   const onLogin = async () => {
     try {
@@ -17,7 +21,9 @@ const LoginPage = (props: Props) => {
       const loginResponse = await axios.post<IAuthResult>('/api/authentication/login', loginValue);
       const authResult = loginResponse.data;
       localStorage.setItem('access-token', authResult.accessToken);
-      navigate('/');
+      const userToken = jwtDecode<IUserToken>(authResult.accessToken);
+      console.log(userToken);
+      authContext.login(userToken);
     } catch (error) {
       console.log(error);
     }

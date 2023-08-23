@@ -24,6 +24,7 @@ import {
 import 'assets/images/Logo.png';
 import jwt_decode from 'jwt-decode';
 import { IUserToken } from 'models/IUserToken';
+import { AuthContext } from 'contexts/AuthContext';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -37,10 +38,7 @@ const MainLayout = ({ setThemeLayout, isDarkMode }: Props) => {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  const accessToken = localStorage.getItem('access-token');
-  console.log(accessToken);
-  console.log(jwt_decode(accessToken!));
-  const userToken = jwt_decode<IUserToken>(accessToken!);
+  const authContext = React.useContext(AuthContext);
 
   const items: MenuProps['items'] = [
     {
@@ -56,7 +54,9 @@ const MainLayout = ({ setThemeLayout, isDarkMode }: Props) => {
   ];
 
   const handleMenuClick: MenuProps['onClick'] = (e) => {
-    console.log('click', e);
+    if (e.key === '2') {
+      authContext.logout();
+    }
   };
 
   const menuProps = {
@@ -116,7 +116,7 @@ const MainLayout = ({ setThemeLayout, isDarkMode }: Props) => {
                   <Dropdown menu={menuProps}>
                     <Button>
                       <Space>
-                        {userToken.name}
+                        {authContext.userToken ? authContext.userToken.name : 'aaaaa'}
                         <DownOutlined />
                       </Space>
                     </Button>
