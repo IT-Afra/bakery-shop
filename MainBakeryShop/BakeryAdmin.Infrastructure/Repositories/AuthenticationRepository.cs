@@ -32,9 +32,9 @@ namespace BakeryAdmin.Infrastructure.Repositories
                 throw new ApplicationException(ErrorReource.InvalidUserOrPassword);
 
             var claims = new List<Claim>();
-            claims.Add(new Claim(ClaimTypes.NameIdentifier , objUser.Id.ToString()));
-            claims.Add(new Claim(ClaimTypes.Name, objUser.Name.ToString()));
-            claims.Add(new Claim(ClaimTypes.Role, objUser.RoleName.ToString()));
+            claims.Add(new Claim("userId" , objUser.Id.ToString()));
+            claims.Add(new Claim("name", objUser.Name.ToString()));
+            claims.Add(new Claim("role", objUser.RoleName.ToString()));
 
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSetting:SecretKey"]));
             var authCredential = new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256Signature);
