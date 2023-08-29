@@ -2,11 +2,11 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { BrightnessHighFill, MoonFill } from 'react-bootstrap-icons';
 import {
-  UploadOutlined,
   UserOutlined,
-  VideoCameraOutlined,
   DownOutlined,
   LogoutOutlined,
+  HomeOutlined,
+  PlusOutlined,
 } from '@ant-design/icons';
 import {
   Col,
@@ -22,8 +22,7 @@ import {
   MenuProps,
 } from 'antd';
 import 'assets/images/Logo.png';
-import jwt_decode from 'jwt-decode';
-import { IUserToken } from 'models/IUserToken';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from 'contexts/AuthContext';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -39,6 +38,7 @@ const MainLayout = ({ setThemeLayout, isDarkMode }: Props) => {
   } = theme.useToken();
 
   const authContext = React.useContext(AuthContext);
+  const navigate = useNavigate();
 
   const items: MenuProps['items'] = [
     {
@@ -53,9 +53,33 @@ const MainLayout = ({ setThemeLayout, isDarkMode }: Props) => {
     },
   ];
 
+  const sidebar: MenuProps['items'] = [
+    {
+      label: 'خانه',
+      key: '1',
+      icon: <HomeOutlined />,
+    },
+    {
+      label: 'انواع نان',
+      key: '2',
+      icon: <PlusOutlined />,
+    },
+  ];
+
   const handleMenuClick: MenuProps['onClick'] = (e) => {
     if (e.key === '2') {
+
       authContext.logout();
+    }
+  };
+
+  const handleSidebarClick: MenuProps['onClick'] = (e) => {
+    if (e.key === '1') {
+      console.log(e);
+      navigate("/home", { replace: true });
+    }
+    if (e.key === '2') {
+      navigate("/typebread", { replace: true });
     }
   };
 
@@ -139,14 +163,9 @@ const MainLayout = ({ setThemeLayout, isDarkMode }: Props) => {
             <Menu
               // theme='light'
               mode="inline"
-              defaultSelectedKeys={['4']}
-              items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
-                (icon, index) => ({
-                  key: String(index + 1),
-                  icon: React.createElement(icon),
-                  label: `nav ${index + 1}`,
-                })
-              )}
+              defaultSelectedKeys={['1']}
+              items={sidebar}
+              onClick={handleSidebarClick}
             />
           </Sider>
           <Layout>

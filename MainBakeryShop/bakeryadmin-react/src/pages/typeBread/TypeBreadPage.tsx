@@ -9,7 +9,6 @@ import {
   Radio,
   Form,
   Modal,
-  InputNumber,
   Input,
   Popconfirm,
 } from 'antd';
@@ -17,6 +16,7 @@ import { ITypeBread } from '../../models/ITypeBread';
 import type { ColumnsType } from 'antd/es/table';
 import { EditFilled, DeleteFilled, UserAddOutlined } from '@ant-design/icons';
 import axios from 'axios';
+import { AuthContext } from 'contexts/AuthContext';
 import { ITypeBreadTable } from '../../models/ITypeBreadTable';
 
 const { useBreakpoint } = Grid;
@@ -33,6 +33,7 @@ const TypeBreadPage = (props: Props) => {
   const screens = useBreakpoint();
   const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([]);
   const [selectedRowID, setSelectedRowID] = React.useState<React.Key[]>([0]);
+  const authContext = React.useContext(AuthContext);
 
   const getTypeBreads = () => {
     axios
@@ -79,6 +80,10 @@ const TypeBreadPage = (props: Props) => {
         name: typeBread.name,
         photoGuid: typeBread.photoGuid,
         isActive: typeBread.isActive,
+      }, {
+        headers: {
+          'Authorization': `bearer ${localStorage.getItem('access-token')}`
+        }
       })
       .then((response) => {
         setIsSpinning(true);
@@ -223,6 +228,7 @@ const TypeBreadPage = (props: Props) => {
         rowSelection={rowSelection}
         columns={screens.xs ? columnsMobile : columns}
         dataSource={typeBreadTable}
+        pagination={{ pageSize: 3 }}
       />
       <Popconfirm
         title="حذف سطر"
